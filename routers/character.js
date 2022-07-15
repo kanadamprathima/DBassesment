@@ -24,9 +24,9 @@ router.post("/characters", async (req, res, next) => {
 router.patch("/characters/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name } = req.body;
+    const { age } = req.body;
     const userUpdate = await Character.findByPk(id);
-    const updated = await userUpdate.update({ name });
+    const updated = await userUpdate.update({ age });
 
     res.send(updated);
   } catch (e) {
@@ -35,5 +35,5 @@ router.patch("/characters/:id", async (req, res, next) => {
   }
 });
 
-//http PATCH :4000/characters/1 name=prathima
+//http PATCH :4000/characters/1 age=27
 module.exports = router;
